@@ -1,0 +1,57 @@
+#:include pokemoncard.kv
+#:import Gradient kivy_gradient.Gradient
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+MDScreen:
+    id:sc1
+    name:'sc1'
+    MDBoxLayout:
+        orientation:'vertical'
+        canvas.before:
+            Color:
+                rgba:
+            RoundedRectangle:
+                id:gradient_color
+                radius:10,10,0,0                            
+                size:self.size
+                pos: self.pos
+                texture:
+                    Gradient.horizontal(get_color_from_hex('#C9CAC7'),get_color_from_hex('#E2E5DF'),get_color_from_hex('##F4F6F2'))
+        MDToolbar:
+            md_bg_color:1,0,0,1
+            title:'PokeDex'
+            anchor_title:
+            bold:True
+        MDBoxLayout:
+            orientation:'vertical'
+            size_hint_y:.25
+            padding:5,0,5,0
+            spacing:5            
+            MDTextField:
+                icon_right:'magnify'
+                size_hint_x:.9
+                pos_hint:{'center_x':.5}
+                hint_text:'Choose a Pokemon name:'
+            MDSeparator:
+                height:.2
+                line_color:0,0,0,.3
+           
+        MDGridLayout:
+            size_hint_y:
+            height:1
+            cols:2
+            rows:2
+            spacing:10
+            padding:
+            PokeCard:
+                on_release:print(str(sc1.width),str(sc1.height))
+            PokeCard:
+            PokeCard:
+            PokeCard:
+
+    
+        
+
+                
+            
+                
+        
